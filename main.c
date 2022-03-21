@@ -9,6 +9,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+    struct Patron {
+        int ID;
+        char name[50];
+        char email[50];
+        char password[24];
+        int is_staff;
+    };
+
 
     void printNavigationMessage(char message[100]);
     void headMessage(char message[100]);
@@ -126,20 +134,45 @@ void newPatron() {
     headMessage("ADD NEW PATRON");
     printf("\n\n\t\t\tENTER PATRONS DETAILS BELOW:");
     printf("\n\t\t\t---------------------------------------------------------------------------\n");
-    printf("\n\t\t\tBook ID NO  = ");
-    printf("\n\n\n\t\t\tPress any key to go to main menu.....");
+    struct Patron patron;
+
+    printf("\n\t\t\tEnter name: ");
     getchar();
+    gets(patron.name);
+    printf("\n\t\t\tEnter email: ");
+    gets(patron.email);
+    printf("\n\t\t\tEnter password: ");
+    gets(patron.password);
+    printf("\n\t\t\tEnter 1 if staff 0 otherwise: ");
+    scanf("%d", &patron.is_staff);
+
+    system("cls");
+    getchar();
+    printf("\t\t\tPatron %s is successfully added\n", patron.name);
+    printf("\t\t\tEmail %s is successfully added\n", patron.email);
+    printf("\t\t\tPassword %s is successfully added\n", patron.password);
+    if (patron.is_staff == 1) {
+        printf("\t\t\tPatron is successfully added as a Staff\n");
+    } else {
+        printf("\t\t\tPatron is is not a Staff\n");
+    }
+    printf("\n\n\n\t\t\tPress any key to go to main menu.....");
+    getchar();;
 }
 
-void allPatrons() {
+void allPatrons(struct Patron patron) {
     printf("\n\t\t\t\tView All Patrons\n");
     printf("\n\t\t\t\t\n");
     headMessage("VIEW PATRONS");
     printf("\n\n\t\t\tENTER PATRONS DETAILS BELOW:");
     printf("\n\t\t\t---------------------------------------------------------------------------\n");
-    printf("\n\t\t\tPatron ID NO  = ");
-    printf("\n\n\n\t\t\tPress any key to go to main menu.....");
     getchar();
+    printf("\t\t\tPatron %s is successfully added\n", patron.name);
+    printf("\t\t\tPatron %s is successfully added\n", patron.email);
+    printf("\t\t\tPatron %s is successfully added\n", patron.password);
+    printf("\t\t\tPatron %s is successfully added\n", patron.is_staff);
+    printf("\n\n\n\t\t\tPress any key to go to main menu.....");
+    getchar();;
 }
 
 void newResources() {
