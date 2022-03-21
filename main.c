@@ -17,6 +17,13 @@
         int is_staff;
     };
 
+    struct Resource {
+        int ID;
+        char title[50];
+        char author[50];
+        char description[100];
+    };
+
 
     void printNavigationMessage(char message[100]);
     void headMessage(char message[100]);
@@ -24,8 +31,8 @@
     int menu();
     void newPatron();
     void allPatrons();
-    void viewRecourses();
-    void viewRecourses();
+    void viewResources();
+    void viewResources();
 
 int main() {
     char title[100] = "County Library Management";
@@ -113,7 +120,7 @@ int menu () {
             newResources();
             break;
         case 4:
-            viewRecourses();
+            viewResources();
             break;
         case 0:
             printf("\n\n\n\t\t\t\tThank you!!!\n\n\n\n\n");
@@ -146,43 +153,68 @@ void newPatron() {
     printf("\n\t\t\tEnter 1 if staff 0 otherwise: ");
     scanf("%d", &patron.is_staff);
 
-    system("cls");
-    getchar();
-    printf("\t\t\tPatron %s is successfully added\n", patron.name);
-    printf("\t\t\tEmail %s is successfully added\n", patron.email);
-    printf("\t\t\tPassword %s is successfully added\n", patron.password);
-    if (patron.is_staff == 1) {
-        printf("\t\t\tPatron is successfully added as a Staff\n");
-    } else {
-        printf("\t\t\tPatron is is not a Staff\n");
-    }
     printf("\n\n\n\t\t\tPress any key to go to main menu.....");
-    getchar();;
+    getchar();
+
 }
 
-void allPatrons(struct Patron patron) {
+void allPatrons() {
     printf("\n\t\t\t\tView All Patrons\n");
     printf("\n\t\t\t\t\n");
     headMessage("VIEW PATRONS");
     printf("\n\n\t\t\tENTER PATRONS DETAILS BELOW:");
     printf("\n\t\t\t---------------------------------------------------------------------------\n");
+    struct Patron patron;
     getchar();
     printf("\t\t\tPatron %s is successfully added\n", patron.name);
-    printf("\t\t\tPatron %s is successfully added\n", patron.email);
-    printf("\t\t\tPatron %s is successfully added\n", patron.password);
-    printf("\t\t\tPatron %s is successfully added\n", patron.is_staff);
+    printf("\t\t\tEmail %s is successfully added\n", patron.email);
+    printf("\t\t\tPassword %s\n", patron.password);
+    if (patron.is_staff == 1) {
+        printf("\t\t\tPatron is successfully added as a Staff\n");
+    } else {
+        printf("\t\t\tPatron is is not a Staff\n");
+    }
+
     printf("\n\n\n\t\t\tPress any key to go to main menu.....");
-    getchar();;
+    getchar();
 }
 
 void newResources() {
-    printf("\n\t\t\t\tAdd New Resources\n");
+    printf("\n\t\t\t\t\n");
+    headMessage("ADD NEW RESOURCE");
+    printf("\n\n\t\t\tENTER RESOURCE DETAILS BELOW:");
+    printf("\n\t\t\t---------------------------------------------------------------------------\n");
+    struct Resource resource;
+
+    printf("\n\t\t\tEnter title: ");
+    getchar();
+    gets(resource.title);
+    printf("\n\t\t\tEnter author: ");
+    gets(resource.author);
+    printf("\n\t\t\tEnter description: ");
+    gets(resource.description);
+
     printf("\n\n\n\t\t\tPress any key to go to main menu.....");
     getchar();
 }
 
-void viewRecourses() {
-    printf("\n\t\t\t\tView All Resources\n");
+void viewResources() {
+   printf("\n\t\t\t\tView All Patrons\n");
+    printf("\n\t\t\t\t\n");
+    headMessage("VIEW PATRONS");
+    printf("\n\n\t\t\tENTER PATRONS DETAILS BELOW:");
+    printf("\n\t\t\t---------------------------------------------------------------------------\n");
+    struct Patron patron;
+    getchar();
+    printf("\t\t\tPatron %s is successfully added\n", patron.name);
+    printf("\t\t\tEmail %s is successfully added\n", patron.email);
+    printf("\t\t\tPassword %s\n", patron.password);
+    if (patron.is_staff == 1) {
+        printf("\t\t\tPatron is successfully added as a Staff\n");
+    } else {
+        printf("\t\t\tPatron is is not a Staff\n");
+    }
+
     printf("\n\n\n\t\t\tPress any key to go to main menu.....");
     getchar();
 }
